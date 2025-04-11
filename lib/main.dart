@@ -8,67 +8,66 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: PantallaInicio(),
+      title: 'Mi App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomeScreen(),  // Pantalla de inicio
     );
   }
 }
 
-class PantallaInicio extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Catálogo de Películas")),
-      body: Stack(
-        children: [
-          // Fondo de la app (puedes poner una imagen aquí si lo deseas)
-          Positioned.fill(
-            child: Container(
-              color: Colors.blueGrey[50],  // Color de fondo
-            ),
+      appBar: AppBar(
+        title: Text('Mi App'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.home),  // Ícono en la AppBar
+            onPressed: () {
+              // Acción al presionar el ícono
+              print('Ícono de la AppBar presionado');
+            },
           ),
-          
-          // Contenido principal
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Acción al presionar el ícono flotante
+          print('Ícono flotante presionado');
+        },
+        child: Icon(Icons.add),  // Ícono flotante
+        backgroundColor: Colors.blue,  // Color de fondo del botón flotante
+      ),
+      body: Stack(
+        fit: StackFit.expand,  // Para que la imagen ocupe toda la pantalla
+        children: [
+          // Imagen de fondo
+          Image.asset(
+            'assets/fondo.jpg',  // Cambia la ruta por la que corresponda
+            fit: BoxFit.cover,  // Para que la imagen cubra toda la pantalla
+          ),
+          // Capa encima de la imagen con el mensaje y el nombre de la app
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // 📌 Logo
-              Container(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  "🎬 Mi Aplicación de Películas", 
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              Text(
+                'Bienvenido a tu aplicacion de confianza',  // Mensaje de bienvenida
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,  // Texto blanco sobre la imagen
                 ),
               ),
-              
-              // 🔘 Botones de navegación (usando Row para colocarlos horizontalmente)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      print("Iniciar Sesión");
-                    },
-                    child: Text("Iniciar Sesión"),
-                  ),
-                  SizedBox(width: 10), // Espaciado entre botones
-                  ElevatedButton(
-                    onPressed: () {
-                      print("Registrarse");
-                    },
-                    child: Text("Registrarse"),
-                  ),
-                ],
-              ),
-              
-              // Botón "Explorar como Invitado" en una nueva fila (columna)
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: ElevatedButton(
-                  onPressed: () {
-                    print("Explorar como Invitado");
-                  },
-                  child: Text("Explorar como Invitado"),
+              SizedBox(height: 20),  // Espacio
+              Text(
+                'InnovaApp',  // Nombre de la aplicación
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,  // Texto blanco
                 ),
               ),
             ],
