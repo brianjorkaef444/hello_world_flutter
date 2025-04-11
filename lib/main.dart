@@ -35,39 +35,39 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Acción al presionar el ícono flotante
+          
           print('Ícono flotante presionado');
         },
-        child: Icon(Icons.add),  // Ícono flotante
-        backgroundColor: Colors.blue,  // Color de fondo del botón flotante
+        child: Icon(Icons.add),  
+        backgroundColor: Colors.blue,  
       ),
       body: Stack(
-        fit: StackFit.expand,  // Para que la imagen ocupe toda la pantalla
+        fit: StackFit.expand,  
         children: [
-          // Imagen de fondo
+        
           Image.asset(
-            'assets/fondo.jpg',  // Cambia la ruta por la que corresponda
-            fit: BoxFit.cover,  // Para que la imagen cubra toda la pantalla
+            'assets/fondo.jpg',  
+            fit: BoxFit.cover,  
           ),
-          // Capa encima de la imagen con el mensaje y el nombre de la app
+        
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Bienvenido a tu aplicacion de confianza',  // Mensaje de bienvenida
+                'Bienvenido a tu aplicacion de confianza',  
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,  // Texto blanco sobre la imagen
+                  color: Colors.white,  
                 ),
               ),
-              SizedBox(height: 20),  // Espacio
+              SizedBox(height: 20),  
               Text(
-                'InnovaApp',  // Nombre de la aplicación
+                'InnovaApp',  
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
-                  color: Colors.white,  // Texto blanco
+                  color: Colors.white,  
                 ),
               ),
             ],
