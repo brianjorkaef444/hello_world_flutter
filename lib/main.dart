@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pokemon_screen.dart'; 
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),  // Pantalla de inicio
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(), 
     );
   }
 }
@@ -25,9 +27,8 @@ class HomeScreen extends StatelessWidget {
         title: Text('Mi App'),
         actions: [
           IconButton(
-            icon: Icon(Icons.home),  // Ícono en la AppBar
+            icon: Icon(Icons.home),
             onPressed: () {
-              // Acción al presionar el ícono
               print('Ícono de la AppBar presionado');
             },
           ),
@@ -35,39 +36,40 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          
-          print('Ícono flotante presionado');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PokemonScreen()),
+          );
         },
-        child: Icon(Icons.add),  
-        backgroundColor: Colors.blue,  
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
       ),
       body: Stack(
-        fit: StackFit.expand,  
+        fit: StackFit.expand,
         children: [
-        
           Image.asset(
-            'assets/fondo.jpg',  
-            fit: BoxFit.cover,  
+            'assets/fondo.jpg',
+            fit: BoxFit.cover,
           ),
-        
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Bienvenido a tu aplicacion de confianza',  
+                'Bienvenido a tu aplicacion de confianza',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,  
+                  color: Colors.white,
                 ),
+                textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20),  
+              SizedBox(height: 20),
               Text(
-                'InnovaApp',  
+                'InnovaApp',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
-                  color: Colors.white,  
+                  color: Colors.white,
                 ),
               ),
             ],
