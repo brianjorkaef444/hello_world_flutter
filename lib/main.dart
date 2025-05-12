@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pokemon_screen.dart'; 
+import 'butaca_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,73 +9,59 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mi App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'Películas Online',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(), 
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: WelcomeScreen(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Mi App'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.home),
-            onPressed: () {
-              print('Ícono de la AppBar presionado');
-            },
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => PokemonScreen()),
-          );
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blue,
-      ),
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Image.asset(
-            'assets/fondo.jpg',
-            fit: BoxFit.cover,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Bienvenido a tu aplicacion de confianza',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Bienvenido',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 20),
-              Text(
-                'InnovaApp',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
+            ),
+            SizedBox(height: 40),
+            Transform.rotate(
+              angle: -0.2,
+              child: Image.asset(
+                'assets/ticket.png',
+                width: 200,
               ),
-            ],
-          ),
-        ],
+            ),
+            SizedBox(height: 50),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => ButacaScreen()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+              ),
+              child: Text('Continuar'),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
+

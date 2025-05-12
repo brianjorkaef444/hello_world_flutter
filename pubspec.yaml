@@ -1,6 +1,6 @@
 name: flutter_application_1
 description: "A new Flutter project."
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -10,11 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.8
-
-  # Nueva dependencia para hacer peticiones HTTP
   http: ^0.13.6
+  crypto: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -25,4 +23,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/fondo.jpg
+    - assets/ticket.png
+    - assets/cinta1.jpg
+    - assets/cinta2.jpg
+    - assets/cinta3.jpg
+
