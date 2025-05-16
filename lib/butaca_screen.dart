@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'marvel_screen.dart'; // Importa la pantalla de personajes
+import 'auth_options_screen.dart'; // Importa la pantalla de opciones de autenticación
 
 class ButacaScreen extends StatelessWidget {
   @override
@@ -36,7 +37,11 @@ class ButacaScreen extends StatelessWidget {
             // Botón Ingresar
             ElevatedButton(
               onPressed: () {
-                // Aquí puedes llevar a la pantalla de login
+                // Navegar a AuthOptionsScreen para mostrar opciones de login o registro
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AuthOptionsScreen()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
@@ -47,10 +52,13 @@ class ButacaScreen extends StatelessWidget {
 
             SizedBox(height: 20),
 
-            // Botón Registrarse
+            // Botón Registrarse (también lleva a AuthOptionsScreen)
             ElevatedButton(
               onPressed: () {
-                // Aquí puedes llevar a la pantalla de registro
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AuthOptionsScreen()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
